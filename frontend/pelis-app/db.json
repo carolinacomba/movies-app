@@ -1,0 +1,68 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "title": "The Adventure Begins",
+        "href": "https://example.com/movies/the-adventure-begins",
+        "year": 2021,
+        "cast": [
+          {
+            "firstName": "John",
+            "lastName": "Doe"
+          },
+          {
+            "firstName": "Jane",
+            "lastName": "Smith"
+          }
+        ],
+        "genres": ["Action", "Adventure"],
+        "extract": "A thrilling action-packed adventure that keeps you on the edge of your seat.",
+        "thumbnail": "https://s0.smartresize.com/wallpaper/203/784/HD-wallpaper-uncharted-movie-ultra-movies-other-movies-movie-action-adventure-uncharted-tomholland-thumbnail.jpg",
+        "thumbnailWidth": 1280,
+        "thumbnailHeight": 720
+      },
+      {
+        "id": 2,
+        "title": "Romance in Paris",
+        "href": "https://example.com/movies/romance-in-paris",
+        "year": 2019,
+        "cast": [
+          {
+            "firstName": "Emily",
+            "lastName": "Clark"
+          }
+        ],
+        "genres": ["Romance", "Drama"],
+        "extract": "A heartwarming story of love and self-discovery in the city of lights.",
+        "thumbnail": "https://tecolotito.elsiglodetorreon.com.mx/cdn-cgi/image/format=webp,width=412,quality=85/i/2021/09/1473384.jpeg",
+        "thumbnailWidth": 1920,
+        "thumbnailHeight": 1080
+      },
+      {
+        "id": 3,
+        "title": "The Future Awaits",
+        "href": "https://example.com/movies/the-future-awaits",
+        "year": 2023,
+        "cast": [
+          {
+            "firstName": "Alex",
+            "lastName": "Johnson"
+          },
+          {
+            "firstName": "Sarah",
+            "lastName": "Williams"
+          },
+          {
+            "firstName": "Michael",
+            "lastName": "Brown"
+          }
+        ],
+        "genres": ["Sci-Fi", "Thriller"],
+        "extract": "In a world governed by technology, one person must stand up to change the future.",
+        "thumbnail": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/770C9D3F157518459FB094FFDD25B38CB8E4B7BFD7330BE0FF7C7AC832187CC9/scale?width=1200&aspectRatio=1.78&format=webp",
+        "thumbnailWidth": 1024,
+        "thumbnailHeight": 768
+      }
+    ]
+  }
+  

@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      @for (movie of movies; track $index) {
+        <div class="col">
+          <div class="card h-100">
+            <img src="{{movie.thumbnail}}" alt="{{movie.title}}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{movie.title}}</h5>
+              <p class="card-text">{{movie.extract}}</p>
+              <p class="card-text"><strong>Año:</strong> {{movie.year}}</p>
+              <p class="card-text">
+                <strong>Actores:</strong>
+                @for (actor of movie.cast; track $index) {
+                  {{actor.firstName}} {{actor.lastName}}{{$index < movie.cast.length - 1 ? ', ' : ''}}
+                }
+              </p>
+              <p class="card-text">
+                <strong>Géneros:</strong> {{movie.genres.join(", ")}}
+              </p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></button>
+              <button class="btn btn-danger btn-sm mx-1"><i class="bi bi-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
