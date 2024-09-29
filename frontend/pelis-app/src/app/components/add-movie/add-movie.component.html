@@ -1,1 +1,103 @@
-formulario reactivo completar
+<div class="p-5">
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="title">Título:</label>
+                <input id="title" type="text" class="form-control" formControlName="title">
+                @if (movieForm.get('title')?.invalid && movieForm.get('title')?.touched) {
+                <span class="text-danger">El título es obligatorio</span>
+                }
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="year">Año:</label>
+                <input id="year" type="number" class="form-control" formControlName="year">
+                @if (movieForm.get('year')?.invalid && movieForm.get('year')?.touched) {
+                <span class="text-danger">El año es obligatorio</span>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="href">Enlace:</label>
+                <input id="href" type="text" class="form-control" formControlName="href">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <label for="genres">Géneros:</label>
+                <select id="genres" class="form-select" (change)="addGenre($any($event.target).value)">
+                    <option value="">Seleccione un género</option>
+                    @for (genre of genres; track genre) {
+                        <option [value]="genre">{{genre}}</option>
+                    }
+                </select>
+                <div>
+                    @for (genre of genresFormArray.controls; track $index) {
+                    <div class="row mb-2">
+                        <div class="col-md-5">
+                            <p>{{genre.value}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" (click)="removeGenre($index)"
+                                class="btn btn-danger mt-1"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="extract">Extracto:</label>
+                <textarea id="extract" formControlName="extract" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="thumbnail">Miniatura URL:</label>
+                <input id="thumbnail" type="text" formControlName="thumbnail" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="thumbnailWidth">Ancho de miniatura:</label>
+                        <input id="thumbnailWidth" type="number" formControlName="thumbnailWidth" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="thumbnailHeight">Alto de miniatura:</label>
+                        <input id="thumbnailHeight" type="number" formControlName="thumbnailHeight"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <h3>Reparto:</h3>
+            <div>
+                @for (actor of castFormArray.controls; track $index) {
+                <div class="row mb-2" [formGroupName]="$index">
+                    <div class="col-md-5">
+                        <input type="text" formControlName="firstName" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" formControlName="lastName" placeholder="Apellido" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" (click)="removeCastMember($index)"
+                            class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+                }
+            </div>
+            <button type="button" (click)="addCastMember()" class="btn btn-primary mt-2">+ Agregar actor</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="movieForm.invalid">Guardar</button>
+    </form>
+</div>
