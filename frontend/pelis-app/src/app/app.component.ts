@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ListMoviesComponent } from './components/list-movies/list-movies.component';
-import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { Component, inject } from "@angular/core";
+import { Router, RouterLink, RouterOutlet } from "@angular/router";
+import { ListMoviesComponent } from "./components/list-movies/list-movies.component";
+import { AddMovieComponent } from "./components/add-movie/add-movie.component";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, ListMoviesComponent, AddMovieComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterOutlet, ListMoviesComponent, AddMovieComponent, RouterLink ],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'pelis-app';
+  title = "pelis-app";
 }

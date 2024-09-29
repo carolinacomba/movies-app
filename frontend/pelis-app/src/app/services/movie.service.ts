@@ -7,7 +7,7 @@ import { Movie } from '../models/movie';
   providedIn: 'root'
 })
 export class MovieService {
-  private readonly http = inject(HttpClient);
+  private http = inject(HttpClient);
   private url: string = "http://localhost:3000/movies";
 
   getMovies():Observable<Movie[]> {
