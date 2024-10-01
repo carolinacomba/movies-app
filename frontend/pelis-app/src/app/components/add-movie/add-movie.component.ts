@@ -4,6 +4,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Movie } from '../../models/movie';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class AddMovieComponent implements OnInit {
   movieForm: FormGroup = new FormGroup({});
   genres: string[] = ['Acción', 'Comedia', 'Drama', 'Ciencia Ficcion', 'Terror'];
   private fb = inject(FormBuilder);
+  private movieService = inject(MovieService);
+  private router = inject(Router);
 
   ngOnInit() {
     this.movieForm = this.fb.group({
@@ -27,8 +30,8 @@ export class AddMovieComponent implements OnInit {
       genres: this.fb.array([]),
       extract: [''],
       thumbnail: [''],
-      thumbnailWidth: [null],
-      thumbnailHeight: [null]
+      thumbnailWidth: [0],
+      thumbnailHeight: [0]
     });
   }
 
@@ -52,8 +55,8 @@ export class AddMovieComponent implements OnInit {
 
   addCastMember() {
     const castForm = this.fb.group({
-      firstName: [''],
-      lastName: ['']
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]
     });
     this.castFormArray.push(castForm);
   }
@@ -64,8 +67,15 @@ export class AddMovieComponent implements OnInit {
 
   onSubmit() {
     if (this.movieForm.valid) {
-      console.log(this.movieForm.value);
-      // Aquí puedes enviar los datos del formulario a tu servicio o API
+      const formData = this.movieForm.value;
+  
+      // Aquí se asegura que la estructura del reparto sea correcta
+      
+  
+      // Guardar película en el servicio
+      this.movieService.saveMovie(formData).subscribe(() => {
+        this.router.navigate(['/movies']);
+      });
     }
   }
 }

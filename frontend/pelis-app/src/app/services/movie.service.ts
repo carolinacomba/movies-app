@@ -14,5 +14,9 @@ export class MovieService {
     return this.http.get<Movie[]>(this.url)
   }
 
+  saveMovie(movie:Movie):Observable<Movie> {
+    return this.http.post<Movie>(this.url, movie)
+  }
+
   constructor() { }
 }
