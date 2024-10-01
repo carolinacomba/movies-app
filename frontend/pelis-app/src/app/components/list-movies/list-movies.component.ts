@@ -3,16 +3,15 @@ import { Movie } from '../../models/movie';
 import { MovieService } from '../../services/movie.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 @Component({
   selector: 'app-list-movies',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './list-movies.component.html',
   styleUrl: './list-movies.component.css',
 })
 export class ListMoviesComponent implements OnInit {
+
   movies: Movie[] = [];
   private movieService = inject(MovieService);
   private router = inject(Router);
@@ -25,6 +24,12 @@ export class ListMoviesComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getMovies().subscribe((data:Movie[]) => {
       this.movies = data
+    })
+  }
+  
+  deleteMovie(_t3: Movie) {
+    this.movieService.deleteMovie(_t3).subscribe(() => {
+      this.ngOnInit();
     })
   }
 }

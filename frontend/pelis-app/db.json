@@ -45,34 +45,6 @@
       "thumbnailHeight": 1080
     },
     {
-      "id": "3",
-      "title": "The Future Awaits",
-      "href": "https://example.com/movies/the-future-awaits",
-      "year": 2023,
-      "cast": [
-        {
-          "firstName": "Alex",
-          "lastName": "Johnson"
-        },
-        {
-          "firstName": "Sarah",
-          "lastName": "Williams"
-        },
-        {
-          "firstName": "Michael",
-          "lastName": "Brown"
-        }
-      ],
-      "genres": [
-        "Sci-Fi",
-        "Thriller"
-      ],
-      "extract": "In a world governed by technology, one person must stand up to change the future.",
-      "thumbnail": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/770C9D3F157518459FB094FFDD25B38CB8E4B7BFD7330BE0FF7C7AC832187CC9/scale?width=1200&aspectRatio=1.78&format=webp",
-      "thumbnailWidth": 1024,
-      "thumbnailHeight": 768
-    },
-    {
       "id": "dfbd",
       "title": "Harry Potter",
       "href": "HARRY_POTTER_",
